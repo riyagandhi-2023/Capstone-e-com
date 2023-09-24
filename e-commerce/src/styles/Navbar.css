@@ -1,0 +1,53 @@
+
+ .navbar-link{
+    display:inline-block;
+    text-decoration: none;
+    font-size: 1.2vw;
+    font-weight: 12px;
+    text-transform: uppercase;
+    color: #212529;
+    transition: color 0.3s linear;
+ }
+ 
+  
+
+.navbar-list a{
+  position: absolute;
+  left: -109px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 120px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  margin-top: 150px;
+}
+
+.navbar-list a:hover{
+  left: 0;
+}
+
+.home-nav{
+  top: 20px;
+  background-color: chocolate;
+}
+
+.products-nav{
+  top: 80px;
+  background-color: chocolate;
+}
+
+.contact-nav{
+  top: 140px;
+  background-color: chocolate;
+ 
+}
+
+
+
+
+
+
+
+ 
