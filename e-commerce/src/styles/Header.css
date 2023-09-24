@@ -63,13 +63,15 @@
   }
   .search-results-text{
     font-size: 2vh;
-    font-family: "consolas";
+    font-family: "Gill Sans", sans-serif;;
     text-align: center;
+  
+  
   }
 
   .search-results img{
-    width: 40vh;
-    height: 30vh;
+    width: 41vh;
+    height: 27vh;
     
   }
 

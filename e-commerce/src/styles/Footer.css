@@ -3,22 +3,14 @@
     padding: 2rem 3rem;
     background-color: rgb(249 249 255);
     border-radius: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    box-shadow: rgba(0, 0, 0, 0.26) 0px 1px 44px;
     transform: translateY(50%);
-    margin: 3% auto auto auto;
-}
-.content-box-footer{
-    display: grid;
-    grid-column: 2;
-}
-.btn-footer button{
-    margin-left: 50%;
-    margin-top: -3%;
-    
+    margin: 10% 20% auto auto;
 }
 
+
 .btn-footer button{
-    background-color: chocolate;
+    background-color: rgb(198, 114, 54);
     color: white;
     font-size: 14px;
     padding: 13px 33px;
@@ -29,12 +21,24 @@
 .footer{
     padding: 14rem 0 9rem 0;
     background-color:rgb(249 249 255);
+
     
 }
 .container{
-    display: grid;
-background-color: chocolate;
+    display: flex;
+    gap: 50px;
+background-color: white;
+color: black;
+max-width: 110rem;
+margin-left: 8%;
 
+}
+
+.container .icons{
+    font-size: 25px;
+    margin-top: 15px;
+    margin-left: 10%;
+  
 }
 
 .container .h3{
@@ -64,11 +68,12 @@ background-color: chocolate;
 }
 .footer-bottom-section{
     display: grid;
-    background-color: chocolate;
+    background-color: black;
+    color:#fff
    
 }
 .button{
-    background-color:chocolate; /* Green */
+    background-color:rgb(198, 114, 54);
     border: none;
     color: white;
     padding: 15px 32px;

@@ -2,17 +2,22 @@
 import React from "react"
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
+import MyImage from "./MyImage";
+import { FaTruckArrowRight } from 'react-icons/fa6'
 
 
 const API = 'https://api.pujakaitem.com/api/products'
-export default function ProductsDetails() {
+const ProductsDetails = () => {
 
-    const {id} = useParams();
+    const { id } = useParams();
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    useEffect(()=> {
+    const { name, company, price, description, stars, reviews, image } = product;
+
+
+
+    useEffect(() => {
         const getProduct = async () => {
             setLoading(true);
             const response = await fetch(`${API}/${id}`);
@@ -20,41 +25,56 @@ export default function ProductsDetails() {
             setLoading(false);
         }
         getProduct(`${API}?id=${id}`);
-    },[id]);
+    }, [id]);
+    console.log(product);
+    if (loading) {
 
-    const Loading = () => {
-        return(
+        return (
             <>
-            Loading...
+                Loading...
             </>
         )
     }
-    const ShowProduct = () => {
-        return(
-        <>
-        <div className="details">
-            <img src={product.image} alt={product.name} />
-        </div>
-        <div className="text-details">
-            <h4> {product.category}</h4>
-            <h1>{product.name}</h1>
-            <p>{product.company}</p>
-            <p> {product.description}</p>
-            <h3> ${product.price}</h3>
-            <div className="colors">{product.colors}</div>
-            <button className="detail-cart">Add to Cart</button>
-        </div>
-        </>
-        )
-    }
-    return(
-        <>
-        <div className="container-details">
-            <div className="content">
-                {loading ? <Loading/> : <ShowProduct/>}
-            </div>
 
-        </div>
+    return (
+        <>
+            <div className="Container-details">
+                <div className="grid grid-two-column">
+                    {/* Product Images */}
+                    <div className="product_images">
+                        <MyImage imgs={image} />
+                    </div>
+                    <div className="product-data">
+                        {/* Product data */}
+                        <div className="product-data">
+                            <h2>{name}</h2>
+                            <p>Stars: {stars}</p>
+                            <p>{reviews} reviews </p>
+                            <p>Price: ${price}</p>
+                            <p>{description}</p>
+                            <div className="product-data-warranty">
+                                <div className="product-warranty-data">
+                                    <FaTruckArrowRight className="warranty-icon" />
+                                    <p>Free Delivery</p>
+                                </div>
+                            </div>
+                            <div className="product-data-info">
+                                <p> Brand: <span> {company}</span></p>
+                            </div>
+                            <hr />
+                            <div className="btn-cart">
+                            <button>Add To Cart</button>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
     )
+
+
 }
+
+
+export default ProductsDetails;

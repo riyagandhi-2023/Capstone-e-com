@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from './components/Home';
 import Header from "./components/Header";
 import Products from "./components/Products";
-import ProductDetails from "./components/ProductsDetails"
+import ProductsDetails from "./components/ProductsDetails.jsx"
 import Contact from "./components/Contact";
 import Footer from './components/Footer'
 import Error from './components/Error'
@@ -20,6 +20,8 @@ import Login from './components/Login'
 import './styles/Footer.css'
 import './styles/Contact.css'
 import './styles/Error.css'
+import './styles/ProductsDetails.css'
+import './styles/MyImage.css'
 
 
 function App() {
@@ -36,7 +38,7 @@ function App() {
       
       <Route path='/' element={<Home />} />
       <Route path='/products' element={<Products />} />
-      <Route path='/product/:id' element={<ProductDetails />} />
+      <Route path='/product/:id' element={<ProductsDetails />} />
       {/* <Route path='/cart' element={<Cart />} /> */}
       <Route path='/login' element={<Login />} />
       <Route path='/contact' element={<Contact />} />

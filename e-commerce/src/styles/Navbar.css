@@ -16,12 +16,13 @@
   left: -109px;
   transition: 0.3s;
   padding: 15px;
-  width: 120px;
+  width: 139px;
   text-decoration: none;
-  font-size: 20px;
-  color: white;
+  font-size: 15px;
+  color: black;
   border-radius: 0 5px 5px 0;
-  margin-top: 150px;
+  margin-top: 160px;
+  font-weight:200;
 }
 
 .navbar-list a:hover{
@@ -30,20 +31,20 @@
 
 .home-nav{
   top: 20px;
-  background-color: chocolate;
+  background-color: rgb(180, 170, 170);
+  
 }
 
 .products-nav{
   top: 80px;
-  background-color: chocolate;
+  background-color: rgb(180, 170, 170);
 }
 
 .contact-nav{
   top: 140px;
-  background-color: chocolate;
+  background-color: rgb(180, 170, 170);
  
 }
-
 
 
 
