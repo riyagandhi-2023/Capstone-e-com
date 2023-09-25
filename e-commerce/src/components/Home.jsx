@@ -44,25 +44,12 @@ export const Home =() => {
                 <section>
 
                 <div className="Main-banner">
-                    <img className="banner-img" src="/src/images/iphone.jpeg" alt="main banner" />
-                    <img className="banner-img" src="/src/images/desktop.jpeg" alt="main banner" />
-                    <img className="banner-img" src="/src/images/watch.jpeg" alt="main banner" />
+                    <img className="banner-img" src="/src/images/iphone.jpeg" alt="main banner" onClick={() => handleFilter("mobile")}/>
+                    <img className="banner-img" src="/src/images/desktop.jpeg" alt="main banner" onClick={() => handleFilter("computer")} />
+                    <img className="banner-img" src="/src/images/watch.jpeg" alt="main banner" onClick={() => handleFilter("watch")}/>
                    
 
-                    <div className="Main-banner-content">
-                        
-                        <div>
-                            <Link className="button-home" onClick={() => handleFilter("mobile")}>BUY NOW</Link>
-                        </div>
-                        <div>
-                            <Link className="button-home" onClick={() => handleFilter("computer")}>BUY NOW</Link>
-                        </div>
-                        <div>
-                            <Link  className="button-home" onClick={() => handleFilter("watch")}>BUY NOW</Link>
-                        </div>
-                        
-                        
-                    </div>
+                    
                 </div>
                 
             </section>

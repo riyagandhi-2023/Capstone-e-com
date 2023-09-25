@@ -11,7 +11,7 @@ const Footer = () => {
         <section className="contact-box">
         <div className="container">
                 <div className="footer-about">
-                    <h3>Tech Space</h3>
+                    <h3>JIO STORE</h3>
                 </div>
                 <div className="footer-social">
                 <h3>Follow Us On</h3>
@@ -40,7 +40,8 @@ const Footer = () => {
         
           <div className="content-footer">
             <p>
-              @{new Date().getFullYear()} Tech Space. All Rights Reserved
+              @{new Date().getFullYear()} JIO STORE. Tech Space. 
+              <br />All Rights Reserved
             </p>
             <div>
               <p>PRIVACY POLICY</p>
