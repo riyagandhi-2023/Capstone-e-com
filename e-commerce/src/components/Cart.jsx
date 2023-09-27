@@ -2,7 +2,8 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import {FaTrashAlt} from 'react-icons/fa'
+import {BiArrowBack} from 'react-icons/bi'
 
 
 const Cart = () => {
@@ -60,18 +61,20 @@ const Cart = () => {
 
     return (
         <>
-            <div className="container mx-auto">
+            <div className="cart">
                 <div className="cart-container">
                     <div className="cart-content">
                         <div className="shopping-cart">
-                            <h1 className="shopping-cart-h">Shopping</h1>
+                            <h1 className="shopping-cart-h">Shopping Cart</h1>
                             <h2 className="shopping-cart-h">{carts.length} Items</h2>
                         </div>
+                        <hr />
                         <div className="cart-product">
                             <h3 className="cart-detail-h3">Product Details</h3>
                             <h3 className="cart-detail-heading">Quantity</h3>
                             <h3 className="cart-detail-heading">Price</h3>
                             <h3 className="cart-detail-heading">Total</h3>
+                            <h3 className="cart-detail-heading"></h3>
                         </div>
                         {
                             carts.map((cart)=>{
@@ -79,24 +82,25 @@ const Cart = () => {
                                     <>
                                     <div className="cart-img-container">
                             <div className="cart-img-product">
-                                <div className="cart-img-2">
-                                    <img className="cart-image" src={cart.image} alt={cart.name} />
+                                <div >
+                                    <img className="cart-image" src={cart.image[0].url} alt={cart.name} />
                                 </div>
                                 <div className="cart-detail-content">
                                     <span className="product-name-span">{cart.name}</span>
                                     <span className="product-brand-span">{cart.company}</span>
                                     <span className="product-brand-span">{cart.category}</span>
-                                    <div className="remove" onClick={() => removeProduct(cart.id)}>Remove</div>
+                                   
                                 </div>
                             </div>
                             <div className="cart-input-container">
                             <img src="/src/images/minus.png" className="image-icon-cart" onClick={() => handleDec(cart.id)}/>
-                                <input className="cart-input" type="text" value={cart.quantity} />
+                                <input className="cart-input" type="text" value={cart.quantity} readOnly/>
                                 <img src="/src/images/add.png" className="image-icon-cart" onClick={() => handleInc(cart.id)}/>
 
                             </div>
                             <span className="input-span">$ {cart.price}</span>
                             <span className="input-span">$ {cart.price * cart.quantity}</span>
+                            <span className="input-span"> <FaTrashAlt className="remove" onClick={() => removeProduct(cart.id)} /></span>
                         </div>
                         </>
                                 )
@@ -104,12 +108,15 @@ const Cart = () => {
                             )
                         }
                         
-                        <Link to="/products" className="continue-shopping-link">Continue Shopping</Link>
-                    </div>
-                    <div className="summary-cart">
+                        < Link to="/products" className="continue-shopping-link"><BiArrowBack  className="back-icon"/>Continue Shopping</Link>
+                        </div>
+                    <div className="summary-container">
+                    <div id="summary" className="summary-cart" >
+                        
                         <h1 className="cart-h1">Order Summary</h1>
+                        <hr className="hr-summary"/>
                         <div className="cart-item">
-                            <span className="item-cart-span">Item {carts.length}</span>
+                            <span className="item-cart-span">Items {carts.length}</span>
                             <span className="item-cart-price">${total.toFixed(2)}</span>
                         </div>
                     </div>
@@ -123,7 +130,8 @@ const Cart = () => {
                         <label htmlFor="promo" className="promo-code-label">Promo Code</label>
                         <input type="text" id="promo" placeholder="Enter your code" className="promo-text" />
                     </div>
-                    <button className="apply">Apply</button>
+                    <button className="apply vertical-align:middle" ><span>Apply</span></button>
+                    <hr className="hr-apply" />
                     <div className="total-container">
                         <div className="total-content">
                             <span>Total Cost</span>
@@ -133,7 +141,7 @@ const Cart = () => {
                     </div>
 
                 </div>
-
+                </div>
             </div>
 
 

@@ -6,9 +6,9 @@ import { useNavigate } from "react-router-dom";
 const SignUp = () => {
   const navigation = useNavigate();
 
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
 
   const handleSubmit = (e) => {
@@ -16,9 +16,13 @@ const SignUp = () => {
     setIsSuccess(false);
     setTimeout(() => {
       setIsSuccess(true);
-      navigation('/login');
+      navigation('/loginm');
     }, 2000); 
   }
+
+
+ 
+      
     return(
         <>
        
@@ -54,7 +58,7 @@ const SignUp = () => {
     </form>
     <div className="create"><p> Already have an account? <Link to='/loginm'>Log In</Link></p></div>
  
-    
+    {isSuccess && <p>Sign up successful!</p>}
       </div>
         </>
     )

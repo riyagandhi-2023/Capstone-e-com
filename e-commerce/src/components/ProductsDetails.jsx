@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import MyImage from "./MyImage";
 import { FaTruckArrowRight } from 'react-icons/fa6'
-import { NavLink } from "react-router-dom";
+import { Link} from "react-router-dom";
+import {BiArrowBack} from 'react-icons/bi'
 
 
 const API = 'https://api.pujakaitem.com/api/products'
@@ -31,7 +32,6 @@ const ProductsDetails = () => {
 
 
     const handleCart = (product,redirect) => {
-        console.log(product);
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         const isProductExist = cart.find(item => item.id === product.id)
         if(isProductExist){
@@ -65,7 +65,11 @@ const ProductsDetails = () => {
 
     return (
         <>
+        <div className="continue-shopping">
+            < Link to="/products" ><BiArrowBack  className="back-icon"/></Link>
+            </div>
             <div className="Container-details">
+                
                 <div className="grid grid-two-column">
                     {/* Product Images */}
                     <div className="product_images">
@@ -77,7 +81,7 @@ const ProductsDetails = () => {
                             <h2>{name}</h2>
                             <p>Stars: {stars}</p>
                             <p>{reviews} reviews </p>
-                            <p>Price: ${price}</p>
+                            <p> Brand: {company}</p>
                             <p>{description}</p>
                             <div className="product-data-warranty">
                                 <div className="product-warranty-data">
@@ -85,13 +89,16 @@ const ProductsDetails = () => {
                                     <p>Free Delivery</p>
                                 </div>
                             </div>
+                        
                             <div className="product-data-info">
-                                <p> Brand: <span> {company}</span></p>
-                            </div>
-                            <hr />
+                            
+                            <span> Price: ${price}</span>
+                             
                             <div className="btn-cart">
+                           
                             <button onClick={() => handleCart(product,true)}>Buy it Now</button>
                             <button onClick={() => handleCart(product)}>Add To Cart</button>
+                            </div>
                             </div>
                            
                         </div>

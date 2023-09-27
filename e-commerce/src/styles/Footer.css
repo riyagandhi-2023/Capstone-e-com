@@ -27,7 +27,6 @@
 .container{
     display: flex;
     gap: 35px;
-background-color: white;
 color: black;
 max-width: 110rem;
 margin-left: 9%;
