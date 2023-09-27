@@ -21,7 +21,7 @@ const SignUp = () => {
   }
     return(
         <>
-        <div> SignUp </div>
+       
         <div>
         <form className="lg_form" onSubmit={handleSubmit}>
       <input
@@ -52,17 +52,10 @@ const SignUp = () => {
       />
       <button type="submit">Sign Up!</button>
     </form>
+    <div className="create"><p> Already have an account? <Link to='/loginm'>Log In</Link></p></div>
+ 
     
-    <div className="create"><p> Already have an account? <Link to='/login'>
-        Log In</Link></p>
-        </div>
-        {isSuccess && (
-          <div className="success-message">
-            Sign up successful! You can now <Link to="/login">Log In</Link>.
-          </div>
-        )}
       </div>
-
         </>
     )
 }

@@ -1,15 +1,17 @@
 /* eslint-disable no-unused-vars */
 import React from "react"
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import MyImage from "./MyImage";
 import { FaTruckArrowRight } from 'react-icons/fa6'
+import { NavLink } from "react-router-dom";
 
 
 const API = 'https://api.pujakaitem.com/api/products'
 const ProductsDetails = () => {
 
     const { id } = useParams();
+    const navigate = useNavigate();
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -26,7 +28,31 @@ const ProductsDetails = () => {
         }
         getProduct(`${API}?id=${id}`);
     }, [id]);
-    console.log(product);
+
+
+    const handleCart = (product,redirect) => {
+        console.log(product);
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const isProductExist = cart.find(item => item.id === product.id)
+        if(isProductExist){
+            const updatedCart = cart.map((item) => {
+                if(item.id === product.id){
+                    return{
+                        ...item,
+                        quantity: item.quantity + 1
+                    }
+                }
+                return item
+            })
+            localStorage.setItem('cart', JSON.stringify(updatedCart))
+        } else{
+            localStorage.setItem('cart', JSON.stringify([...cart, {...product,quantity: 1}]))
+        }
+        alert('Product added to cart')
+        if(redirect){
+            navigate('/cart')
+        }
+    }
     if (loading) {
 
         return (
@@ -35,6 +61,7 @@ const ProductsDetails = () => {
             </>
         )
     }
+    
 
     return (
         <>
@@ -63,7 +90,8 @@ const ProductsDetails = () => {
                             </div>
                             <hr />
                             <div className="btn-cart">
-                            <button>Add To Cart</button>
+                            <button onClick={() => handleCart(product,true)}>Buy it Now</button>
+                            <button onClick={() => handleCart(product)}>Add To Cart</button>
                             </div>
                            
                         </div>

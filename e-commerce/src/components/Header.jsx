@@ -1,35 +1,29 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import Navbar from './Navbar';
 import { BsSearch } from "react-icons/bs";
 import { useState } from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
-
 import {IoLogOutOutline} from "react-icons/io5"
 import { IoMdContact } from "react-icons/io";
 import { BsFillCartFill } from "react-icons/bs";
 
-//import { useHistory } from './react-router-dom'
 
-//importing link
-// import { Link } from "react-router-dom";
-// import Products from "./Products";
 
 
 export default function Header() {
+
+   
     const [input, setInput] = useState("");
     const [results, setResults] = useState([]);
-    //const history = useHistory();
-
-
     const { isAuthenticated, logout, loginWithRedirect, user } = useAuth0();
 
+   
 
     const fetchData = (value) => {
         if (value.trim() === "") {
             setResults([]);
-            // history.push("/");
             return;
         }
         fetch("https://api.pujakaitem.com/api/products")
@@ -98,7 +92,7 @@ export default function Header() {
                         </div>
                         <div className="cart-icon">
                         <NavLink to='/cart' className="navbar-link cart-link" ><BsFillCartFill /> </NavLink>
-                        {/* <span className='cart-total-item'>  </span> */}
+                        <span className='cart-total-item'> </span>
                         </div>
                         
                 </div>

@@ -24,9 +24,7 @@ const Products = () => {
                 // eslint-disable-next-line react-hooks/exhaustive-deps
                 componentMounted = false;
             }
-            //   const data = await response.json();
-            //   setData(data);
-            //  console.log(data);
+     
         }
 
         getProducts();
@@ -39,10 +37,6 @@ const Products = () => {
         )
     }
 
-    //     const filterProduct = (categories) => {
-    //     const updateList = data.filter((item) => item.category === categories);
-    //     setFilter(updateList);
-    // }
     const filterProduct = (category) => {
         const updateList = data.filter((item) =>
             item.category.toLowerCase() === category.toLowerCase()
@@ -66,8 +60,9 @@ const Products = () => {
                     {filter.map(product => {
                         return (
                             <>
-                                <div className="product-content" key={product.id}>
-                                    <div className="product-card">
+                            <div key={product.id}>
+                                <div className="product-content" >
+                                    <div className="product-card" >
                                         <Link to={`/product/${product.id}`}>
                                             <img src={product.image} className="product-img" alt={product.name} />
                                         </Link>
@@ -77,6 +72,7 @@ const Products = () => {
                                             <button className="product-button"><Link to={`/product/${product.id}`}>More Info</Link></button>
                                         </div>
                                     </div>
+                                </div>
                                 </div>
 
                             </>
@@ -98,18 +94,6 @@ const Products = () => {
     )
 }
 
-
-
-
-
-//     return (
-//         <section className="details">
-//             Loading...
-//         </section>
-//     )
-// } else {
-//     <ShowProducts />
-// }
 
 
 

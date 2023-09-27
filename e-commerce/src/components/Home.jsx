@@ -1,25 +1,40 @@
 /* eslint-disable no-unused-vars */
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 //importing link
 import { Link } from "react-router-dom";
 
 import {LiaShippingFastSolid} from 'react-icons/lia'
 
 
-// import Products from "./Products";
-// import filterProduct from "./Products";
 
 
 // import { LiaShippingFastSolid } from "react-icons/lia"
 
 
 
-export const Home =() => {
-
+const Home =() => {
+    const [data, setData] = useState([]);
     const [filter, setFilter] = useState('');
     const handleFilter = (category) => {
-        setFilter(category);
+        const updateList = data.filter((item) =>
+            item.category.toLowerCase() === category.toLowerCase()
+        )
+        setFilter(updateList);
+        console.log(category)
       };
+
+      useEffect(() => {
+        const getProducts = async () => {
+            const response = await fetch('https://api.pujakaitem.com/api/category');
+                setData(await response.clone().json());
+                setFilter(await response.json());
+                
+            }
+
+
+
+        getProducts();
+    }, []);
     return (
         <>
         <section>
@@ -44,7 +59,7 @@ export const Home =() => {
                 <section>
 
                 <div className="Main-banner">
-                    <img className="banner-img" src="/src/images/iphone.jpeg" alt="main banner" onClick={() => handleFilter("mobile")}/>
+                    <img className="banner-img" src="/src/images/iphone.jpeg" alt="main banner" onClick={( ) => handleFilter("mobile")}/>
                     <img className="banner-img" src="/src/images/desktop.jpeg" alt="main banner" onClick={() => handleFilter("computer")} />
                     <img className="banner-img" src="/src/images/watch.jpeg" alt="main banner" onClick={() => handleFilter("watch")}/>
                    
