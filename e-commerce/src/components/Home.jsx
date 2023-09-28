@@ -1,8 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React, {useState, useEffect} from 'react';
 //importing link
-import { Link } from "react-router-dom";
+
 import {LiaShippingFastSolid} from 'react-icons/lia'
+import { Link } from 'react-router-dom';
+
 
 
 const Home =() => {
@@ -16,18 +18,21 @@ const Home =() => {
 
     return (
         <>
+    
         <section>
-        <div className='img-heros'>
+        <div className='img-heros active'>
+
             <div>
+        
         <img src='/src/images/banner.jpg' className='img-hero'/>
+        <img src='/src/images/iphone 15.jpg' className='img-hero'/>
+        <img src='/src/images/earbuds.png' className='img-hero'/>
+        <img src='/src/images/samsung_1.png' className='img-hero'/>
+        <img src='/src/images/samsung.jpg' className='img-hero'/>
+        
         </div>
         </div>
         </section>
-            <section className="home">
-                <div className='buynow-btn'>
-                    <button><Link to={'/products'}> BUY NOW </Link></button>
-                </div>
-                </section>
                 <section>
                     <div className='services'>
                         <LiaShippingFastSolid className='icon-ship'/> 

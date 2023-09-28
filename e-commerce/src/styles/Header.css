@@ -25,7 +25,7 @@
   .input-search input{
     width: 350px;
     height: 25px;
-    margin-left: 70px;
+    margin-left: -40vh;
   
   }
   
@@ -33,7 +33,7 @@
     font-size: 2.3vh;
     cursor: pointer;
     margin-top: -3.4vh;
-    margin-left: 59.5vh;
+    margin-left: 10vh;
     position: absolute;
   }
 
@@ -77,12 +77,12 @@
 
 .username{
   margin-top: .5vh;
-  margin-right: -19vh;
+  margin-right: -30vh;
 }
 
 .btn-in-out{
   margin-top: .5vh;
-margin-right: -10vh;
+margin-right: -16vh;
 }
 
 .btn-in-out button{
@@ -94,7 +94,7 @@ margin-right: -10vh;
 }
 .cart-link{
   margin-top: 1vh;
-margin-left: -10vh;
+margin-left: -17vh;
 font-size: 28px;
 
 }

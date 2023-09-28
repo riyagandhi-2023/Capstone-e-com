@@ -6,7 +6,10 @@ import MyImage from "./MyImage";
 import { FaTruckArrowRight } from 'react-icons/fa6'
 import { Link} from "react-router-dom";
 import {BiArrowBack} from 'react-icons/bi'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
+import {MdSecurity} from 'react-icons/md'
+import {TbReplaceFilled} from 'react-icons/tb'
 
 const API = 'https://api.pujakaitem.com/api/products'
 const ProductsDetails = () => {
@@ -48,10 +51,7 @@ const ProductsDetails = () => {
         } else{
             localStorage.setItem('cart', JSON.stringify([...cart, {...product,quantity: 1}]))
         }
-        alert('Product added to cart')
-        if(redirect){
-            navigate('/cart')
-        }
+        
     }
     if (loading) {
 
@@ -75,25 +75,33 @@ const ProductsDetails = () => {
                     <div className="product_images">
                         <MyImage imgs={image} />
                     </div>
-                    <div className="product-data">
+                    <div >
                         {/* Product data */}
                         <div className="product-data">
                             <h2>{name}</h2>
-                            <p>Stars: {stars}</p>
-                            <p>{reviews} reviews </p>
+                            <p>Stars: {stars} <FontAwesomeIcon icon={faStar} style={{color: "#ffd43b",}} /></p>
+                            <p><span>{reviews}</span> reviews </p>
                             <p> Brand: {company}</p>
                             <p>{description}</p>
-                            <div className="product-data-warranty">
-                                <div className="product-warranty-data">
-                                    <FaTruckArrowRight className="warranty-icon" />
+                            <div className="product-data-delivery">
+                                <div className="product-delivery-data">
+                                    <FaTruckArrowRight className="delivery-icon" />
                                     <p>Free Delivery</p>
+                                </div>
+                                <div className="product-delivery-data">
+                                    <TbReplaceFilled className="delivery-icon" />
+                                    <p>30 Days replacement</p>
+                                </div>
+                                <div className="product-delivery-data">
+                                    <MdSecurity className="delivery-icon" />
+                                    <p>1 year warranty</p>
                                 </div>
                             </div>
                         
                             <div className="product-data-info">
                             
                             <span> Price: ${price}</span>
-                             
+                            
                             <div className="btn-cart">
                            
                             <button onClick={() => handleCart(product,true)}>Buy it Now</button>

@@ -15,11 +15,16 @@ const Loginm = () => {
 
   return (
   <>
- 
-  <div className="split">
+ <div className="loginm-container">
+  
     <h1 className="heading"> Login Form </h1>
+    <div className="split">
+      <div className="left">
+      <img src="https://storeliquidators.com/public/front_assets/images/signin-image.jpg"/>
+      </div>
     
     
+      <div className="centerd">
     <form className="lg_form" onSubmit={handleSubmit}>
       <input
         type="text"
@@ -43,7 +48,8 @@ const Loginm = () => {
       <button type="submit">Login</button>
     </form>
     <div className="create"><p> Do not have an account? <Link to='/signup'>Create</Link></p></div>
-
+    </div>
+    </div>
     </div>
    
 

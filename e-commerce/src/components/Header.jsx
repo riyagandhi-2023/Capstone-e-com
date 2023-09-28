@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Navbar from './Navbar';
 import { BsSearch } from "react-icons/bs";
 import { useState } from 'react';
@@ -8,19 +8,20 @@ import { useAuth0 } from "@auth0/auth0-react";
 import {IoLogOutOutline} from "react-icons/io5"
 import { IoMdContact } from "react-icons/io";
 import { BsFillCartFill } from "react-icons/bs";
-
+// import getCartItemCount from '/src/components/Cart.jsx'
 
 
 
 export default function Header() {
+    
 
-   
     const [input, setInput] = useState("");
     const [results, setResults] = useState([]);
     const { isAuthenticated, logout, loginWithRedirect, user } = useAuth0();
+    
 
-   
-
+    const navigate = useNavigate();
+    
     const fetchData = (value) => {
         if (value.trim() === "") {
             setResults([]);
@@ -47,7 +48,12 @@ export default function Header() {
         setInput(value);
         fetchData(value);
     }
-
+    const getCartItemCount = () => {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const itemCount = cart.reduce((count, item) => count + item.quantity, 0);
+        return itemCount;
+        
+    };
 
     return (
         <>
@@ -55,7 +61,7 @@ export default function Header() {
             <header>
                 <div id="MainHeader">
                     <NavLink to='/'>
-                        <img src="src/images/logo.png" alt="logo" className="logo" />
+                        <img src="/src/images/logo.png" alt="logo" className="logo" />
                     </NavLink>
 
                     <div className="column-search">
@@ -92,7 +98,9 @@ export default function Header() {
                         </div>
                         <div className="cart-icon">
                         <NavLink to='/cart' className="navbar-link cart-link" ><BsFillCartFill /> </NavLink>
-                        <span className='cart-total-item'> </span>
+                        {getCartItemCount() > 0 && ( // Check if cart item count is greater than 0
+                        <span className='cart-total-item'>{getCartItemCount()}</span>
+                    )}
                         </div>
                         
                 </div>

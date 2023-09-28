@@ -6,11 +6,12 @@ import {FaTrashAlt} from 'react-icons/fa'
 import {BiArrowBack} from 'react-icons/bi'
 
 
+
 const Cart = () => {
 
     const navigate = useNavigate();
     const [total, setTotal] = useState(0);
-
+    
     const carts = JSON.parse(localStorage.getItem('cart')) || []; 
 
     useEffect(() => {
@@ -56,11 +57,25 @@ const Cart = () => {
     }
 
     if(!carts.length) {
-    return <div className="empty-cart">Cart is empty</div>
+    return <div className="empty">
+        <div className="empty-cart">
+        <img src="https://assets.materialup.com/uploads/16e7d0ed-140b-4f86-9b7e-d9d1c04edb2b/preview.png" />
+        </div>
+        <div className="empty-cart-content">
+            
+            <p> Your Cart is Empty</p>
+            <p>Add something to make me happy </p>
+            < Link to="/products" ><button className="empty-btn">Continue Shopping</button></Link>
+        </div>
+        </div>
+   
     }
+
+   
 
     return (
         <>
+    
             <div className="cart">
                 <div className="cart-container">
                     <div className="cart-content">

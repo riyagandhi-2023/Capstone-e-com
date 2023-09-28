@@ -66,9 +66,9 @@ const Products = () => {
                                             <img src={product.image} className="product-img" alt={product.name} />
                                         </Link>
                                         <div className="card-content">
-                                            <h5 className="card-title" >Name: {product.name.substring(0, 12)}</h5>
-                                            <p className="card-price" >Price: ${product.price}</p>
-                                            <button className="product-button"><Link to={`/product/${product.id}`}>More Info</Link></button>
+                                            <h5 className="card-title" >{product.name.substring(0, 12)}</h5>
+                                            <p className="card-price" >${product.price}</p>
+                                            <Link to={`/product/${product.id}`}><button className="product-button">See Details</button></Link>
                                         </div>
                                     </div>
                                 </div>
