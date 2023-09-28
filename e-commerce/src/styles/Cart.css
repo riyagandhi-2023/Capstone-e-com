@@ -312,3 +312,34 @@
     margin-top: 55px;
     border: none;
 }
+
+@media (max-width: 768px) {
+    .cart-container {
+        flex-direction: column;
+        margin: 1rem;
+    }
+
+    .cart-content {
+        width: 100%;
+        padding: 1.5rem;
+    }
+    .cart-item {
+        flex-direction: column;
+    }
+
+    .cart-img-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart-image {
+        height: auto;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .cart-content {
+        padding: 1rem;
+    }
+}

@@ -63,3 +63,21 @@ margin-left: 9%;
     color:#fff
    
 }
+
+@media (max-width: 768px) {
+    .contact-box {
+        max-width: 90vw;
+        margin: 24% 5% auto auto;
+    }
+
+    .container {
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .container .icons {
+        margin-left: 0;
+    }
+}

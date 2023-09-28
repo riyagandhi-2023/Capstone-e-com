@@ -45,3 +45,16 @@
   display: flex;
   align-items: center;
 }
+@media (max-width: 768px) {
+  .image-detail {
+    grid-template-columns: 1fr; 
+  }
+
+  .box-image-style {
+    max-width: 100%; 
+  }
+
+  .grid-four-column {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}

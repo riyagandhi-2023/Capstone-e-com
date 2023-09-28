@@ -115,6 +115,44 @@ border-style: none none solid none;
     font-weight: bold;
 }
 
+@media (max-width: 768px) {
+    .img-hero {
+        width: 90%;
+        margin: 50px 10px;
+    }
+
+    .buynow-btn {
+        margin-left: 10%;
+    }
+
+    .Main-banner-content {
+        margin-left: 10%;
+        column-count: 1;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .banner-img {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+    .icon-ship {
+        margin-left: 0;
+        text-align: center;
+        font-size: 200%;
+    }
+
+    .shipping-text {
+        text-align: center;
+        margin-left: 0;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+}
+
 
 
 

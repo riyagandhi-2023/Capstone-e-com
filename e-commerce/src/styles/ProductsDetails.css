@@ -93,5 +93,18 @@
     border: none;
 }
 
+@media (max-width: 768px) {
+  
+  .product-data {
+    margin-right: 0; 
+  }
+
+  .btn-cart button {
+    margin-left: 0; 
+  }
+
+  
+}
+
 
 

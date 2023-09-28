@@ -54,3 +54,25 @@
     margin-left: 580px;
   }
 
+  @media (max-width: 768px) {
+    .split {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .heading {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .lg_form {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .create {
+        margin-left: 0;
+        text-align: center;
+    }
+}
+

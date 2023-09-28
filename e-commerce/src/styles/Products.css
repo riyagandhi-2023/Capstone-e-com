@@ -55,3 +55,15 @@
     font-size: 15px;
 }
 
+
+@media (max-width: 768px) {
+    .product-container {
+      grid-template-columns: repeat(2, 1fr); 
+    }
+  
+    .product-content {
+      width: 100%; 
+      margin-left: 0; 
+    }
+     
+  }
