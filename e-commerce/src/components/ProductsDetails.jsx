@@ -22,7 +22,7 @@ const ProductsDetails = () => {
     const { name, company, price, description, stars, reviews, image } = product;
 
 
-
+//fetching single api with id (product details page)
     useEffect(() => {
         const getProduct = async () => {
             setLoading(true);
@@ -33,7 +33,7 @@ const ProductsDetails = () => {
         getProduct(`${API}?id=${id}`);
     }, [id]);
 
-
+// adding item to the cart
     const handleCart = (product,redirect) => {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         const isProductExist = cart.find(item => item.id === product.id)

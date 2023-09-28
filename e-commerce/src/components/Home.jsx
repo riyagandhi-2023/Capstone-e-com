@@ -3,11 +3,13 @@ import React, {useState, useEffect} from 'react';
 //importing link
 
 import {LiaShippingFastSolid} from 'react-icons/lia'
-import { Link } from 'react-router-dom';
+
 
 
 
 const Home =() => {
+
+    // filter category for images at bottom
     const [data, setData] = useState([]);
     const [filter, setFilter] = useState('');
     const handleFilter = (category) => {
@@ -23,7 +25,7 @@ const Home =() => {
         <div className='img-heros active'>
 
             <div>
-        
+        {/* slide show of images */}
         <img src='/src/images/banner.jpg' className='img-hero'/>
         <img src='/src/images/iphone 15.jpg' className='img-hero'/>
         <img src='/src/images/earbuds.png' className='img-hero'/>

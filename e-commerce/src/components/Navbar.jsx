@@ -7,7 +7,7 @@ import { AiFillHome } from "react-icons/ai";
 import { RiContactsLine } from "react-icons/ri";
 
 
-
+//navigation bar 
 function Navbar() {
 
  

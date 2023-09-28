@@ -3,13 +3,13 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-
+//login page created by me
 const Loginm = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(username);
+    
         
     }
 

@@ -8,7 +8,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import {IoLogOutOutline} from "react-icons/io5"
 import { IoMdContact } from "react-icons/io";
 import { BsFillCartFill } from "react-icons/bs";
-// import getCartItemCount from '/src/components/Cart.jsx'
+
 
 
 
@@ -19,9 +19,8 @@ export default function Header() {
     const [results, setResults] = useState([]);
     const { isAuthenticated, logout, loginWithRedirect, user } = useAuth0();
     
-
-    const navigate = useNavigate();
     
+    // Search bar
     const fetchData = (value) => {
         if (value.trim() === "") {
             setResults([]);
@@ -48,6 +47,8 @@ export default function Header() {
         setInput(value);
         fetchData(value);
     }
+
+    //cart item should pop-up after add refresh
     const getCartItemCount = () => {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         const itemCount = cart.reduce((count, item) => count + item.quantity, 0);
@@ -55,15 +56,18 @@ export default function Header() {
         
     };
 
+
     return (
         <>
 
             <header>
                 <div id="MainHeader">
+                    {/* logo and link to homepage */}
                     <NavLink to='/'>
                         <img src="/src/images/logo.png" alt="logo" className="logo" />
                     </NavLink>
 
+                    {/* search bar */}
                     <div className="column-search">
                         <div className="input-search">
                             <input
@@ -79,7 +83,8 @@ export default function Header() {
                         </div>
 
                     </div>
-
+                    
+                    {/* log in/log out and username */}
             
                     <div className='username'> 
 
@@ -96,9 +101,11 @@ export default function Header() {
                         )
                         }
                         </div>
+
+                        {/* cart and item added */}
                         <div className="cart-icon">
                         <NavLink to='/cart' className="navbar-link cart-link" ><BsFillCartFill /> </NavLink>
-                        {getCartItemCount() > 0 && ( // Check if cart item count is greater than 0
+                        {getCartItemCount() > 0 && ( 
                         <span className='cart-total-item'>{getCartItemCount()}</span>
                     )}
                         </div>

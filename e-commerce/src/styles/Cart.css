@@ -66,8 +66,6 @@
     background-color: whitesmoke;
 }
 
-
-
 .cart-img-product {
     display: flex;
     width: 40%;
@@ -312,6 +310,7 @@
     margin-top: 55px;
     border: none;
 }
+
 
 @media (max-width: 768px) {
     .cart-container {

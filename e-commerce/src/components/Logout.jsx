@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 
+
 function  Logout() {
     const handleClick = () => {
         localStorage.clear();
